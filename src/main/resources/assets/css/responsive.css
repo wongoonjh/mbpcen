@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+/* responsive.css */
+
+/* 320px 이상 349px 이하 화면에 적용 */
+@media all and (min-width:320px) and (max-width:349px) {
+  button.securekb_span_1 { width: 20px; }
+  button.securekb_span_2 { width: 44px; }
+  button.securekb_span_3 { width: 68px; }
+  button.securekb_span_4	{ width: 92px; }
+  button.securekb_btn_rect {
+    font-size:0.625rem;
+    padding: 1px 0px;
+	word-break:break-all;
+  }
+}
+
+/* 350px 이상 359px 이하 화면에 적용 */
+@media all and (min-width:350px) and (max-width:359px) {
+  button.securekb_span_1 { width: 23px; }
+  button.securekb_span_2 { width: 50px; }
+  button.securekb_span_3 { width: 77px; }
+  button.securekb_span_4	{ width: 104px; }
+  button.securekb_btn_rect {
+    font-size:0.625rem;
+    padding: 1px 0px;
+	word-break:break-all;
+  }
+}
+
+/* 360px 이상 385px 이하 화면에 적용 */
+@media all and (min-width:360px) and (max-width:385px) {
+  button.securekb_span_1 { width: 23px; }
+  button.securekb_span_2 { width: 50px; }
+  button.securekb_span_3 { width: 77px; }
+  button.securekb_span_4	{ width: 104px; }
+  button.securekb_btn_rect {
+    font-size:0.625rem;
+	word-break:break-all;
+    padding: 1px 0px;
+  }
+}
+
+
+/* 386px 이상 409px 이하 화면에 적용 */
+@media all and (min-width:386px) and (max-width:409px) {
+  button.securekb_span_1 { width: 26px; }
+  button.securekb_span_2 { width: 56px; }
+  button.securekb_span_3 { width: 86px; }
+  button.securekb_span_4	{ width: 116px; }
+  button.securekb_btn_rect {
+    font-size: 0.625rem;
+    padding: 0.063rem;
+  }
+}
+
+/* 410px 이상 421px 이하 화면에 적용 */
+@media all and (min-width:410px) and (max-width:421px) {
+  button.securekb_span_1 { width: 28px; }
+  button.securekb_span_2 { width: 60px; }
+  button.securekb_span_3 { width: 92px; }
+  button.securekb_span_4	{ width: 124px; }
+  button.securekb_btn_rect {
+    font-size: 0.625rem;
+    padding: 0.063rem;
+  }
+}
+
+/* 422px 이상 433px 이하 화면에 적용 */
+@media all and (min-width:422px) and (max-width:433px) {
+  button.securekb_span_1 { width: 28px; }
+  button.securekb_span_2 { width: 60px; }
+  button.securekb_span_3 { width: 92px; }
+  button.securekb_span_4	{ width: 124px; }
+  button.securekb_btn_rect {
+     font-size: 0.375em;
+    padding: 1px 3px 1px 3px;
+  }
+}
+
+/* 434px 이상 457px 이하 화면에 적용 */
+@media all and (min-width:434px) and (max-width:457px) {
+  button.securekb_span_1 { width: 29px; }
+  button.securekb_span_2 { width: 63px; }
+  button.securekb_span_3 { width: 95px; }
+  button.securekb_span_4	{ width: 129px; }
+  button.securekb_btn_rect {
+     font-size: 0.375em;
+    padding: 1px 4px 1px 4px;
+  }
+}
+
+/* 458px 이상 469px 이하 화면에 적용 */
+@media all and (min-width:458px) and (max-width:469px) {
+  button.securekb_span_1 { width: 30px; }
+  button.securekb_span_2 { width: 64px; }
+  button.securekb_span_3 { width: 100px; }
+  button.securekb_span_4	{ width: 133px; }
+  button.securekb_btn_rect {
+    font-size: 0.375em;
+    padding: 1px 5px 1px 5px;
+  }
+}
+
+/* 470px 이상 481px 이하 화면에 적용 */
+@media all and (min-width:470px) and (max-width:481px) {
+  button.securekb_span_1 { width: 31px; }
+  button.securekb_span_2 { width: 66px; }
+  button.securekb_span_3 { width: 102px; }
+  button.securekb_span_4	{ width: 137px; }
+  button.securekb_btn_rect {
+    font-size: 0.375em;
+    padding: 1px 5px 1px 5px;
+  }
+}
+
+
+/* 482px 이상 496px 이하 화면에 적용 */
+@media all and (min-width:482px) and (max-width:496px) {
+  button.securekb_span_1 { width: 31px; }
+  button.securekb_span_2 { width: 66px; }
+  button.securekb_span_3 { width: 102px; }
+  button.securekb_span_4	{ width: 137px; }
+  button.securekb_btn_rect {
+    font-size: 0.438em;
+    padding: 1px 6px 1px 6px;
+  }
+}
+
+
+/* 497px 이상 505px 이하 화면에 적용 */
+@media screen and (min-width:497px) and (max-width:505px) {
+  button.securekb_span_1 { width: 32px; }
+  button.securekb_span_2 { width: 68px; }
+  button.securekb_span_3 { width: 106px; }
+  button.securekb_span_4	{ width: 140px; }
+  button.securekb_btn_rect {
+    font-size: 0.438em;
+    padding: 1px 6px 1px 6px;
+  }
+}
+
+/* 506px 이상 517px 이하 화면에 적용 */
+@media screen and (min-width:506px) and (max-width:517px) {
+  button.securekb_span_1 { width: 32px; }
+  button.securekb_span_2 { width: 68px; }
+  button.securekb_span_3 { width: 104px; }
+  button.securekb_span_4	{ width: 140px; }
+  button.securekb_btn_rect {
+    font-size: 0.438em;
+    padding: 1px 6px 1px 6px;
+  }
+}
+
+/* 518px 이상 529px 이하 화면에 적용 */
+@media screen and (min-width:518px) and (max-width:529px) {
+  button.securekb_span_1 { width: 33px; }
+  button.securekb_span_2 { width: 70px; }
+  button.securekb_span_3 { width: 108px; }
+  button.securekb_span_4	{ width: 144px; }
+  button.securekb_btn_rect {
+    font-size: 0.438em;
+    padding: 1px 6px 1px 6px;
+  }
+}
+
+
+/* 530px 이상 553px이하 화면에 적용 */
+@media screen and (min-width:530px) and (max-width:553px) {
+  button.securekb_span_1 { width: 33.5px; }
+  button.securekb_span_2 { width: 72px; }
+  button.securekb_span_3 { width: 107px; }
+  button.securekb_span_4	{ width: 146px; }	
+  button.securekb_btn_rect {
+    font-size: 0.438em;
+    padding: 1px 6px 1px 6px;
+  }
+}
+
+/* 554px 이상 화면에 적용 */
+@media screen and (min-width:554px){
+  button.securekb_span_1 { width: 34.5px; }
+  button.securekb_span_2 { width: 73px; }
+  button.securekb_span_3 { width: 117.5px; }
+  button.securekb_span_4	{ width: 150px; }	
+  button.securekb_btn_rect {
+      font-size: 0.5em;
+      padding: 1px 4px 1px 4px;
+  }
+}

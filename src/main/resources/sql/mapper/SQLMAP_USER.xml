@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+<!-- =======================================================-->
+<!-- select key 엘리먼트 속성 -->
+<!-- =======================================================-->
+<!-- keyProperty: selectKey구문의 결과가 셋팅될 대상 프로퍼티. -->
+<!-- keyColumn: 리턴되는 결과셋의 칼럼명은 프로퍼티에 일치한다. 여러개의 칼럼을 사용한다면 칼럼명의 목록은 콤마를 사용해서 구분한다. -->
+<!-- resultType: 결과의 타입. 마이바티스는 이 기능을 제거할 수 있지만 추가하는게 문제가 되지는 않을것이다. 마이바티스는 String을 포함하여 키로 사용될 수 있는 간단한 타입을 허용한다. -->
+<!-- order: BEFORE 또는 AFTER를 셋팅할 수 있다. BEFORE로 설정하면 키를 먼저 조회하고 그 값을 keyProperty 에 셋팅한 뒤 insert 구문을 실행한다. AFTER로 설정하면 insert 구문을 실행한 뒤 selectKey 구문을 실행한다. 오라클과 같은 데이터베이스에서는 insert구문 내부에서 일관된 호출형태로 처리한다. -->
+<!-- statementType: STATEMENT, PREPARED 또는 CALLABLE중 하나를 선택할 수 있다. 마이바티스에게 Statement, PreparedStatement 또는 CallableStatement를 사용하게 한다. 디폴트는 PREPARED 이다 -->
+
+<!-- =======================================================-->
+<!-- select key 예제  -->
+<!-- =======================================================-->
+<!-- <insert id="insertHobby" parameterType="hobby"> -->
+<!--     /* order="BEFORE" 삽입 전에 조회 */ -->
+<!--     /* selectKey 구문의 위치는 INSERT 쿼리 위, 아래 상관 없이 위치할 수 있습니다. */ -->
+<!--     <selectKey keyProperty="hobbyId" resultType="int" order="BEFORE"> -->
+<!--         SELECT MAX(hobby_id) + 1 FROM hobby -->
+<!--     </selectKey> -->
+<!--     /* #{hobbyId}에는 SelectKey 구문을 통해서 조회한 값이 저장되어 있습니다. */ -->
+<!--     INSERT INTO hobby(hobbdy_id, hobby_name, user_id) -->
+<!--     VALUES (#{hobbyId}, #{hobbyName}, #{userId}) -->
+<!-- </insert> -->
+
+
+	
+	<!-- 메뉴 목록 조회 결과 맵 -->
+	<resultMap type="userVO" id="resultMap_selectTestQuery">
+		<result column="COLUMN1" 			property="menuId" />
+		<result column="COLUMN1" 			property="menuNm" />
+		<result column="COLUMN1" 			property="menuDc" />
+	</resultMap>
+	
+	<!-- 메뉴 목록 조회 -->
+	<select id="selectTestQuery" parameterType="hashMap"  resultMap="resultMap_selectTestQuery">
+		select COLUMN1 , COLUMN2 ,COLUMN3 FROM TBNEW
+	</select>
+	
+	
+	
+		<!-- 메뉴 목록 조회 결과 맵 -->
+	<resultMap type="userVO" id="resultMap_getUserInfo">
+		<result column="SEQ_NO" 			property="seqNo" />
+		<result column="USER_ID" 			property="userID" />
+		<result column="USER_PW" 			property="userPW" />
+		<result column="USER_NAME" 			property="userName" />
+		<result column="USER_EMAIL" 		property="userEmail" />
+		<result column="USER_ROLE" 			property="userRole" />
+	</resultMap>
+	
+	
+	<!-- 회원정보 조회 -->
+	<select id="getUserInfo" parameterType="hashMap"  resultMap="resultMap_getUserInfo">
+		SELECT a.SEQ_NO
+			   ,a.USER_ID
+			   ,a.USER_PW
+			   ,a.USER_NAME
+			   ,a.USER_EMAIL
+               ,b.USER_ROLE
+	    FROM TB_USER_INFO a LEFT JOIN TB_USER_ROLE_INFO b on a.USER_ID = b.USER_ID
+	    WHERE a.USER_ID = #{USER_ID}
+	</select>
+
+
+
+	<insert id="insertUserInfo" parameterType="hashmap" >
+	    <selectKey keyProperty="seq_no" resultType="int" order="BEFORE">
+        	SELECT SEQ_TB_USER_INFO.nextval FROM DUAL
+    	</selectKey>
+		insert into TB_USER_INFO 
+			(SEQ_NO
+			,USER_ID
+			,USER_PW
+			,USER_NAME
+			,USER_EMAIL
+			,REG_DT
+			,REG_ID
+		) values ( 
+			#{seq_no}
+			,#{USER_ID}
+			,#{USER_PW}
+			,#{USER_NAME}
+			,#{USER_EMAIL}
+			,sysdate
+			,#{REG_ID}
+		)
+	</insert>
+	
+	
+	
+</mapper>

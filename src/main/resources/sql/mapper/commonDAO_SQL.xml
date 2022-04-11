@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="TEST">
+	
+	
+	<!-- 전증권목록 -->
+	<select id="test_connect" resultType="java.util.HashMap">
+		
+		select 'a' as acc from dual
+				
+				 
+	</select>
+	
+	
+	<insert id="test_insert">
+		INSERT INTO TM_TEST (TEST1,TEST2,REG_DT) VALUES('TEST1','TEST2',to_char(sysdate,'YYYYMMDDHH24MISS'))
+	</insert>
+
+</mapper>

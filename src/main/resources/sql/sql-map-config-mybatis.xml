@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+
+ 
+<configuration>
+
+
+<!-- ################################################################################################# -->
+<!-- 속성이 한개 이상 존재한다면 마이바티스는 일정한 순서로 로드한다. -->
+<!-- ################################################################################################# -->
+<!-- properties 엘리먼트에 명시된 속성을 가장 먼저 읽는다. -->
+<!-- properties 엘리먼트의 클래스패스 자원이나 url 속성으로 부터 로드된 속성을 두번째로 읽는다. 그래서 이미 읽은 값이 있다면 덮어쓴다. -->
+<!-- 마지막으로 메소드 파라미터로 전달된 속성을 읽는다. 앞서 로드된 값을 덮어쓴다. -->
+<!-- 그래서 가장 우선순위가 높은 속성은 메소드의 파라미터로 전달된 값이고 그 다음은 자원및 url 속성이고 마지막은 properties 엘리먼트에 명시된 값이다. -->
+	<properties resource="sql_config/properties/sql_mybatis.properties">
+		<property name="username" value="${db.dev.oracle.fw.admin.username}"/>
+		<property name="password" value="${db.dev.oracle.fw.admin.password}"/>
+	</properties>
+	
+	
+	
+	
+	
+	
+	 <settings>
+	  <setting name="cacheEnabled" value="true"/> 
+	     <!-- 설정에서 각 매퍼에 설정된 캐시를 전역적으로 사용할지 말지에 대한 여부 -->
+	  <setting name="lazyLoadingEnabled" value="true"/>
+	     <!-- 지연로딩을 사용할지에 대한 여부. 사용하지 않는다면 모두 즉시 로딩할 것이다. 이 값은 fetchType 속성을 사용해서 대체할 수 있다. -->
+	  <setting name="multipleResultSetsEnabled" value="true"/>
+	     <!-- 한개의 구문에서 여러개의 ResultSet을 허용할지의 여부(드라이버가 해당 기능을 지원해야 함)	 -->
+	  <setting name="useColumnLabel" value="true"/>
+	     <!-- 칼럼명 대신에 칼럼라벨을 사용. 드라이버마다 조금 다르게 작동한다. 문서와 간단한 테스트를 통해 실제 기대하는 것처럼 작동하는지 확인해야 한다. -->
+	  <setting name="useGeneratedKeys" value="false"/>
+	     <!-- 생성키에 대한 JDBC 지원을 허용. 지원하는 드라이버가 필요하다. true로 설정하면 생성키를 강제로 생성한다. 일부 드라이버(예를들면, Derby)에서는 이 설정을 무시한다. -->
+	  <setting name="autoMappingBehavior" value="PARTIAL"/>
+	     <!-- 마이바티스가 칼럼을 필드/프로퍼티에 자동으로 매핑할지와 방법에 대해 명시. PARTIAL은 간단한 자동매핑만 할뿐 내포된 결과에 대해서는 처리하지 않는다. FULL은 처리가능한 모든 자동매핑을 처리한다. -->
+	  <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+	     <!-- 자동매핑 대상중 알수 없는 칼럼(이나 알수없는 프로퍼티 타입)을 발견했을때 행위를 명시 -->
+		<!-- NONE: 아무것도 하지 않음 -->
+		<!-- WARNING: 경고 로그를 출력('org.apache.ibatis.session.AutoMappingUnknownColumnBehavior'의 로그레벨은 WARN이어야 한다.) -->
+		<!-- FAILING: 매핑이 실패한다. (SqlSessionException예외를 던진다.) -->
+	  <setting name="defaultExecutorType" value="SIMPLE"/>
+	    <!-- 디폴트 실행자(executor) 설정. SIMPLE 실행자는 특별히 하는 것이 없다. REUSE 실행자는 PreparedStatement를 재사용한다. BATCH 실행자는 구문을 재사용하고 수정을 배치처리한다. -->
+	  <setting name="defaultStatementTimeout" value="25"/>
+	    <!-- 데이터베이스로의 응답을 얼마나 오래 기다릴지를 판단하는 타임아웃을 설정 -->
+	  <setting name="defaultFetchSize" value="100"/>
+	    <!-- 조회결과를 가져올때 가져올 데이터 크기를 제어하는 용도로 드라이버에 힌트를 설정 이 파라미터값은 쿼리 설정으로 변경할 수 있다. -->
+	  <setting name="safeRowBoundsEnabled" value="false"/>
+	   <!-- 중첩구문내 RowBound사용을 허용 허용한다면 false로 설정 -->
+	  <setting name="mapUnderscoreToCamelCase" value="false"/>
+	  <setting name="localCacheScope" value="SESSION"/>
+	    <!-- 마이바티스는 순환참조를 막거나 반복된 쿼리의 속도를 높히기 위해 로컬캐시를 사용한다. 디폴트 설정인 SESSION을 사용해서 동일 세션의 모든 쿼리를 캐시한다. localCacheScope=STATEMENT 로 설정하면 로컬 세션은 구문 실행할때만 사용하고 같은 SqlSession에서 두개의 다른 호출사이에는 데이터를 공유하지 않는다. -->
+	  <setting name="jdbcTypeForNull" value="OTHER"/>
+	    <!-- JDBC타입을 파라미터에 제공하지 않을때 null값을 처리한 JDBC타입을 명시한다. 일부 드라이버는 칼럼의 JDBC타입을 정의하도록 요구하지만 대부분은 NULL, VARCHAR 나 OTHER 처럼 일반적인 값을 사용해서 동작한다. -->
+	  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+	    <!-- 지연로딩을 야기하는 객체의 메소드를 명시 -->
+	</settings>   
+	    
+
+
+
+
+
+    <typeAliases>
+        <typeAlias alias="hashMap" 	      	type="java.util.HashMap" ></typeAlias>
+    </typeAliases>
+    
+    
+    
+    
+
+<environments default="development">
+
+    <environment id="LOCAL">
+        <transactionManager type="JDBC" />
+        <dataSource type="POOLED">
+            <property name="driver" value="${db.dev.oracle.fw.admin.driver}" />
+            <property name="url" value="${db.dev.oracle.fw.admin.url}" />
+            <property name="username" value="${username}" />
+            <property name="password" value="${password}" />
+            <property name="poolMaximumActiveConnections" value="20"/>
+            <property name="poolMaximumIdleConnections" value="20"/>
+            <property name="poolMaximumCheckoutTime" value="20000"/>
+            <property name="poolPingEnabled" value="true"/>
+            <property name="poolPingQuery" value="select 1"/>
+            <property name="poolPingConnectionsNotUsedFor" value="10000"/>
+            <property name="poolTimeToWait" value="15000"/>
+        </dataSource>
+    </environment>
+    
+    <environment id="DEV">
+        <transactionManager type="JDBC" />
+        <dataSource type="POOLED">
+            <property name="driver" value="${db.dev.oracle.fw.admin.driver}" />
+            <property name="url" value="${db.dev.oracle.fw.admin.url}" />
+            <property name="username" value="${username}" />
+            <property name="password" value="${password}" />
+            <property name="poolMaximumActiveConnections" value="20"/>
+            <property name="poolMaximumIdleConnections" value="20"/>
+            <property name="poolMaximumCheckoutTime" value="20000"/>
+            <property name="poolPingEnabled" value="true"/>
+            <property name="poolPingQuery" value="select 1"/>
+            <property name="poolPingConnectionsNotUsedFor" value="10000"/>
+            <property name="poolTimeToWait" value="15000"/>
+        </dataSource>
+    </environment>
+    
+    <environment id="PRD">
+	    <transactionManager type="MANAGED" />
+	    <dataSource type="JNDI">
+	    <property name="driver" value="${db.prd.oracle.fw.admin.driver}" />
+            <property name="url" value="${db.dev.oracle.fw.admin.url}" />
+            <property name="username" value="${username}" />
+            <property name="password" value="${password}" />
+            <property name="poolMaximumActiveConnections" value="20"/>
+            <property name="poolMaximumIdleConnections" value="20"/>
+            <property name="poolMaximumCheckoutTime" value="20000"/>
+            <property name="poolPingEnabled" value="true"/>
+            <property name="poolPingQuery" value="select 1"/>
+            <property name="poolPingConnectionsNotUsedFor" value="10000"/>
+            <property name="poolTimeToWait" value="15000"/>
+        </dataSource>
+ 	 </environment>
+</environments>
+
+<!-- [옵션설명] -->
+<!-- poolMaximumActiveConnections : 활성화된 최대 커넥션 수 -->
+<!-- poolMaximumIdleConnections : 유휴상태에서 최대 커넥션 수 -->
+<!-- poolMaximumCheckoutTime : 최대 커넥션 획득 시간(ms) -->
+<!-- poolPingEnabled : 커넥션이 살아있는지 ping 테스트 여부 -->
+<!-- poolPingQuery : 커넥션 ping 테스트 쿼리 (DB 종류에 따라 적절하게 수정) -->
+<!-- poolPingConnectionsNotUsedFor : 유휴상태의 커넥션이 닫히는지 판단할 시간(ms) -->
+<!-- poolTimeToWait : 사용된 커넥션을 기다리는 시간 -->
+
+
+
+
+<!--     <settings> -->
+<!--         <setting name="cacheEnabled" value="false" /> -->
+<!-- 		<setting name="useGeneratedKeys" value="true" /> -->
+<!-- 		<setting name="defaultExecutorType" value="REUSE" /> -->
+<!--     </settings> -->
+
+    
+    
+
+    
+    
+    
+    
+    
+    <mappers>
+
+		<mapper resource="sql_config/sql_mapper/PLT_TESTQUERY_DAO_SQL.xml"></mapper>
+
+		
+    </mappers>
+</configuration>

@@ -1,0 +1,17 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="useGeneratedKeys" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="hashMap" 	      	type="java.util.HashMap" ></typeAlias>
+        <typeAlias alias="userVO" 	      	type="com.qry.mbpcen.admin.usr.model.UserVO" ></typeAlias>
+    </typeAliases>
+
+    <typeHandlers>
+    </typeHandlers>
+</configuration>
